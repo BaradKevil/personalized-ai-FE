@@ -9,6 +9,14 @@ import MiloCore from './components/milo/MiloCore'
 
 const Login = lazy(() => import('./pages/auth/Login'))
 const Register = lazy(() => import('./pages/auth/Register'))
+const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'))
+const ResetPassword = lazy(() => import('./pages/auth/ResetPassword'))
+const VerifyEmail = lazy(() => import('./pages/auth/VerifyEmail'))
+const Onboarding = lazy(() => import('./pages/onboarding/Onboarding'))
+const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./pages/legal/TermsOfService'))
+const HelpSupport = lazy(() => import('./pages/support/HelpSupport'))
+const Changelog = lazy(() => import('./pages/changelog/Changelog'))
 const Today = lazy(() => import('./pages/home/Today'))
 const Chat = lazy(() => import('./pages/chat/Chat'))
 const Tasks = lazy(() => import('./pages/tasks/Tasks'))
@@ -35,7 +43,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <Navigate to="/login" replace />,
+        element: <Navigate to="/landing" replace />,
     },
     {
         path: '/login',
@@ -52,6 +60,54 @@ const router = createBrowserRouter([
                 <Register />
             </LogGaurd>
         ),
+    },
+    {
+        path: '/forgot-password',
+        element: (
+            <LogGaurd>
+                <ForgotPassword />
+            </LogGaurd>
+        ),
+    },
+    {
+        path: '/reset-password',
+        element: (
+            <LogGaurd>
+                <ResetPassword />
+            </LogGaurd>
+        ),
+    },
+    {
+        path: '/verify-email',
+        element: <VerifyEmail />,
+    },
+    {
+        path: '/onboarding',
+        element: (
+            <AuthGaurd>
+                <Onboarding />
+            </AuthGaurd>
+        ),
+    },
+    {
+        path: '/privacy',
+        element: <PrivacyPolicy />,
+    },
+    {
+        path: '/terms',
+        element: <TermsOfService />,
+    },
+    {
+        path: '/help',
+        element: <HelpSupport />,
+    },
+    {
+        path: '/support',
+        element: <Navigate to="/help" replace />,
+    },
+    {
+        path: '/changelog',
+        element: <Changelog />,
     },
     {
         path: '/app',

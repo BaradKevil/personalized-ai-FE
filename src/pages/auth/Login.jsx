@@ -86,22 +86,17 @@ const Login = () => {
                 </Box>
 
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2.5 }}>
-                    <Box
-                        component="button"
-                        type="button"
-                        onClick={() => setForgotOpen(true)}
-                        sx={{
-                            bgcolor: 'transparent',
-                            border: 'none',
-                            cursor: 'pointer',
+                    <Link
+                        to="/forgot-password"
+                        style={{
                             fontSize: '12.5px',
                             fontWeight: 600,
                             color: 'var(--accent)',
-                            '&:hover': { textDecoration: 'underline' },
+                            textDecoration: 'none',
                         }}
                     >
                         Forgot password?
-                    </Box>
+                    </Link>
                 </Box>
 
                 <Button

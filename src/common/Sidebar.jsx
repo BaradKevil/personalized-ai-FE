@@ -4,7 +4,9 @@ import {
     FiHome,
     FiMessageSquare,
     FiCheckSquare,
+    FiTarget,
     FiCalendar,
+    FiTrendingUp,
     FiSettings,
 } from 'react-icons/fi';
 import { MiloLogoMark, MiloWordmark } from '../components/MiloLogo';
@@ -14,8 +16,9 @@ const NAV_ITEMS = [
     { key: 'home',     icon: FiHome,          label: 'Home',     path: '/app',         match: ['/app', '/app/'] },
     { key: 'chat',     icon: FiMessageSquare, label: 'Chat',     path: '/app/chat',    match: ['/app/chat'] },
     { key: 'tasks',    icon: FiCheckSquare,   label: 'Tasks',    path: '/app/tasks',   match: ['/app/tasks'] },
+    { key: 'goals',    icon: FiTarget,        label: 'Goals',    path: '/app/goals',   match: ['/app/goals'] },
     { key: 'calendar', icon: FiCalendar,      label: 'Calendar', path: '/app/calendar', match: ['/app/calendar'] },
-    { key: 'settings', icon: FiSettings,      label: 'Settings', path: '/app/settings', match: ['/app/settings'] },
+    { key: 'insights', icon: FiTrendingUp,    label: 'Insights', path: '/app/insights', match: ['/app/insights'] },
 ];
 
 const NavItem = ({ item, active, onNavigate }) => {
@@ -147,6 +150,23 @@ const Sidebar = ({ onNavigate }) => {
                                     Active
                                 </Typography>
                             </Box>
+                        </Box>
+                        <Box
+                            sx={{
+                                color: location.pathname.startsWith('/app/settings') ? 'var(--accent)' : 'var(--text-muted)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: 26,
+                                height: 26,
+                                borderRadius: '6px',
+                                flexShrink: 0,
+                                bgcolor: location.pathname.startsWith('/app/settings') ? 'var(--accent-soft)' : 'transparent',
+                                transition: 'all 0.15s ease',
+                            }}
+                            title="Settings"
+                        >
+                            <FiSettings size={15} strokeWidth={location.pathname.startsWith('/app/settings') ? 2.2 : 1.8} />
                         </Box>
                     </Box>
                 </NavLink>

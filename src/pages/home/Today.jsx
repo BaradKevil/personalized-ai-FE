@@ -40,9 +40,9 @@ const QUICK_PROMPTS = [
 
 const QUICK_ACTIONS = [
     { icon: FiPlus, label: 'New Task', desc: 'Add to agenda', to: '/app/tasks?new=1' },
+    { icon: FiTarget, label: 'Goals', desc: 'Milestones & progress', to: '/app/goals' },
     { icon: FiCalendar, label: 'Calendar', desc: 'Schedule & timeline', to: '/app/calendar' },
     { icon: FiZap, label: 'Ask Milo', desc: 'Instant reasoning', to: '/app/chat' },
-    { icon: FiSettings, label: 'Settings', desc: 'AI & preferences', to: '/app/settings' },
 ];
 
 const containerVariants = {

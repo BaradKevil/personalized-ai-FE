@@ -162,13 +162,13 @@ const Register = () => {
                     label={
                         <Typography sx={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>
                             I agree to the{' '}
-                            <Box component="span" sx={{ fontWeight: 600, color: 'var(--accent)' }}>
+                            <Link to="/terms" target="_blank" style={{ fontWeight: 600, color: 'var(--accent)', textDecoration: 'none' }}>
                                 Terms of Service
-                            </Box>{' '}
+                            </Link>{' '}
                             &{' '}
-                            <Box component="span" sx={{ fontWeight: 600, color: 'var(--accent)' }}>
+                            <Link to="/privacy" target="_blank" style={{ fontWeight: 600, color: 'var(--accent)', textDecoration: 'none' }}>
                                 Privacy Policy
-                            </Box>
+                            </Link>
                         </Typography>
                     }
                     sx={{ mb: 0.5 }}
