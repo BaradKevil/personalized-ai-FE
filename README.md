@@ -30,7 +30,7 @@ npm run lint       # eslint
 
 Demo sign-in: any email + any password (see the note on the login screen).
 
-## Architecture (mirrors SmartOps-Pay)
+## Architecture
 
 ```
 src/
