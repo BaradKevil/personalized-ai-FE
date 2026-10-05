@@ -12,6 +12,7 @@ import {
     FiZap,
     FiAlertCircle,
     FiCalendar,
+    FiSettings,
 } from 'react-icons/fi';
 import { HiSparkles } from 'react-icons/hi2';
 import AgentAvatar from '../../components/AgentAvatar';
@@ -39,9 +40,9 @@ const QUICK_PROMPTS = [
 
 const QUICK_ACTIONS = [
     { icon: FiPlus, label: 'New Task', desc: 'Add to agenda', to: '/app/tasks?new=1' },
-    { icon: FiClock, label: 'Reminder', desc: 'Time-based nudge', to: '/app/reminders' },
-    { icon: FiTarget, label: 'Set Goal', desc: 'Define milestone', to: '/app/goals?new=1' },
-    { icon: FiZap, label: 'Ask AI', desc: 'Instant reasoning', to: '/app/chat' },
+    { icon: FiCalendar, label: 'Calendar', desc: 'Schedule & timeline', to: '/app/calendar' },
+    { icon: FiZap, label: 'Ask Milo', desc: 'Instant reasoning', to: '/app/chat' },
+    { icon: FiSettings, label: 'Settings', desc: 'AI & preferences', to: '/app/settings' },
 ];
 
 const containerVariants = {

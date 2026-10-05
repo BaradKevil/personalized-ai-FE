@@ -1,44 +1,21 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { Avatar, Box, Typography } from '@mui/material';
 import {
-    FiHome, FiMessageSquare, FiCheckSquare, FiTarget, FiCalendar,
-    FiBell, FiSettings, FiActivity, FiBook, FiRepeat, FiBarChart2,
+    FiHome,
+    FiMessageSquare,
+    FiCheckSquare,
+    FiCalendar,
+    FiSettings,
 } from 'react-icons/fi';
 import { MiloLogoMark, MiloWordmark } from '../components/MiloLogo';
 import { useUserProfile, DEMO_MODE } from '../Api/Api';
 
-const NAV_GROUPS = [
-    {
-        label: 'Main',
-        items: [
-            { key: 'home',     icon: FiHome,         label: 'Home',     path: '/app',               match: ['/app', '/app/'] },
-            { key: 'chat',     icon: FiMessageSquare, label: 'Chat',     path: '/app/chat',           match: ['/app/chat'] },
-            { key: 'calendar', icon: FiCalendar,      label: 'Calendar', path: '/app/calendar',       match: ['/app/calendar'] },
-        ],
-    },
-    {
-        label: 'Productivity',
-        items: [
-            { key: 'tasks',    icon: FiCheckSquare,  label: 'Tasks',    path: '/app/tasks',     match: ['/app/tasks'] },
-            { key: 'goals',    icon: FiTarget,        label: 'Goals',    path: '/app/goals',     match: ['/app/goals'] },
-            { key: 'habits',   icon: FiRepeat,        label: 'Habits',   path: '/app/habits',    match: ['/app/habits'] },
-            { key: 'reminders',icon: FiBell,          label: 'Reminders',path: '/app/reminders', match: ['/app/reminders'] },
-        ],
-    },
-    {
-        label: 'Insights',
-        items: [
-            { key: 'memory',   icon: FiBook,          label: 'Memory',   path: '/app/memory',   match: ['/app/memory'] },
-            { key: 'insights', icon: FiActivity,      label: 'Insights', path: '/app/insights', match: ['/app/insights'] },
-            { key: 'progress', icon: FiBarChart2,     label: 'Progress', path: '/app/progress', match: ['/app/progress'] },
-        ],
-    },
-    {
-        label: 'System',
-        items: [
-            { key: 'settings', icon: FiSettings, label: 'Settings', path: '/app/settings', match: ['/app/settings'] },
-        ],
-    },
+const NAV_ITEMS = [
+    { key: 'home',     icon: FiHome,          label: 'Home',     path: '/app',         match: ['/app', '/app/'] },
+    { key: 'chat',     icon: FiMessageSquare, label: 'Chat',     path: '/app/chat',    match: ['/app/chat'] },
+    { key: 'tasks',    icon: FiCheckSquare,   label: 'Tasks',    path: '/app/tasks',   match: ['/app/tasks'] },
+    { key: 'calendar', icon: FiCalendar,      label: 'Calendar', path: '/app/calendar', match: ['/app/calendar'] },
+    { key: 'settings', icon: FiSettings,      label: 'Settings', path: '/app/settings', match: ['/app/settings'] },
 ];
 
 const NavItem = ({ item, active, onNavigate }) => {
@@ -55,15 +32,15 @@ const NavItem = ({ item, active, onNavigate }) => {
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 1.2,
-                    px: 1.25,
-                    py: 0.9,
-                    borderRadius: '8px',
+                    gap: 1.3,
+                    px: 1.4,
+                    py: 1.05,
+                    borderRadius: '9px',
                     fontSize: '13.5px',
                     fontWeight: active ? 600 : 500,
                     color: active ? 'var(--accent)' : 'var(--text-secondary)',
                     bgcolor: active ? 'var(--accent-soft)' : 'transparent',
-                    transition: 'all 0.12s ease',
+                    transition: 'all 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
                     '&:hover': {
                         bgcolor: active ? 'var(--accent-soft)' : 'var(--surface-soft)',
                         color: active ? 'var(--accent)' : 'var(--ink)',
@@ -81,10 +58,10 @@ const NavItem = ({ item, active, onNavigate }) => {
                         height: 22,
                         flexShrink: 0,
                         color: active ? 'var(--accent)' : 'var(--text-muted)',
-                        transition: 'color 0.12s ease',
+                        transition: 'color 0.15s ease',
                     }}
                 >
-                    <Icon size={15} strokeWidth={active ? 2.2 : 1.8} />
+                    <Icon size={16} strokeWidth={active ? 2.2 : 1.8} />
                 </Box>
                 <Box component="span" sx={{ minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', lineHeight: 1 }}>
                     {item.label}
@@ -93,23 +70,6 @@ const NavItem = ({ item, active, onNavigate }) => {
         </NavLink>
     );
 };
-
-const GroupLabel = ({ children }) => (
-    <Typography
-        sx={{
-            px: 1.25,
-            pt: 2,
-            pb: 0.5,
-            fontSize: '10.5px',
-            fontWeight: 600,
-            color: 'var(--text-muted)',
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-        }}
-    >
-        {children}
-    </Typography>
-);
 
 const Sidebar = ({ onNavigate }) => {
     const location = useLocation();
@@ -126,9 +86,9 @@ const Sidebar = ({ onNavigate }) => {
         .toUpperCase();
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', py: 2, px: 1.5, gap: 0 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', py: 2, px: 1.5 }}>
             {/* Logo */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.9, px: 1, mb: 1.5 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.9, px: 1, mb: 2.2 }}>
                 <MiloLogoMark size={28} />
                 <MiloWordmark size={17} />
             </Box>
@@ -139,16 +99,13 @@ const Sidebar = ({ onNavigate }) => {
                 aria-label="Main navigation"
                 sx={{ flexGrow: 1, overflowY: 'auto', overflowX: 'hidden' }}
             >
-                {NAV_GROUPS.map((group) => (
-                    <Box key={group.label} component="ul" sx={{ listStyle: 'none', m: 0, p: 0, mb: 0.5 }}>
-                        <GroupLabel>{group.label}</GroupLabel>
-                        {group.items.map((item) => (
-                            <Box component="li" key={item.path} sx={{ mb: 0.35 }}>
-                                <NavItem item={item} active={isActive(item)} onNavigate={onNavigate} />
-                            </Box>
-                        ))}
-                    </Box>
-                ))}
+                <Box component="ul" sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', flexDirection: 'column', gap: 0.4 }}>
+                    {NAV_ITEMS.map((item) => (
+                        <Box component="li" key={item.path}>
+                            <NavItem item={item} active={isActive(item)} onNavigate={onNavigate} />
+                        </Box>
+                    ))}
+                </Box>
             </Box>
 
             {/* User footer */}

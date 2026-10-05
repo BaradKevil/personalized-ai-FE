@@ -1,13 +1,13 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
-import { FiHome, FiMessageSquare, FiCheckSquare, FiTarget, FiRepeat } from 'react-icons/fi';
+import { FiHome, FiMessageSquare, FiCheckSquare, FiCalendar, FiSettings } from 'react-icons/fi';
 
 const BOTTOM_ITEMS = [
-    { label: 'Home',   icon: FiHome,          path: '/app',         match: ['/app', '/app/'] },
-    { label: 'Chat',   icon: FiMessageSquare, path: '/app/chat',    match: ['/app/chat'] },
-    { label: 'Tasks',  icon: FiCheckSquare,   path: '/app/tasks',   match: ['/app/tasks'] },
-    { label: 'Goals',  icon: FiTarget,        path: '/app/goals',   match: ['/app/goals'] },
-    { label: 'Habits', icon: FiRepeat,        path: '/app/habits',  match: ['/app/habits'] },
+    { label: 'Home',     icon: FiHome,          path: '/app',         match: ['/app', '/app/'] },
+    { label: 'Chat',     icon: FiMessageSquare, path: '/app/chat',    match: ['/app/chat'] },
+    { label: 'Tasks',    icon: FiCheckSquare,   path: '/app/tasks',   match: ['/app/tasks'] },
+    { label: 'Calendar', icon: FiCalendar,      path: '/app/calendar', match: ['/app/calendar'] },
+    { label: 'Settings', icon: FiSettings,      path: '/app/settings', match: ['/app/settings'] },
 ];
 
 const BottomNav = () => {
